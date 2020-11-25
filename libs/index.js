@@ -56,13 +56,6 @@ const Rules = {
     }
   },
 
-  // 不小于 6 位的数字字母混合密码
-  mixNumLetter(v, msg) {
-    if (!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}$/.test(v)) {
-      return msg;
-    }
-  },
-
   // 验证类型
   type(v, type, msg) {
     if (typeof v !== type) {
@@ -94,7 +87,6 @@ const DefaultMsg = {
   maxLength: key => `${key} 字符长度不符合要求`,
   enum: key => `${key} 不在限定项内`,
   equal: key => `${key} 不等于目标字符`,
-  mixNumLetter: key => `${key} 不符合数字字母混合要求`,
   type: key => `${key} 类型有误`,
   min: key => `${key} 数值大小不符合要求`,
   max: key => `${key} 数值大小不符合要求`,
