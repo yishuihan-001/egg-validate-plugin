@@ -30,6 +30,7 @@
 npm i egg-validate-plugin -S
 ```
 
+&nbsp;
 
 ## 插件开启与配置
 
@@ -82,6 +83,7 @@ exports.validatePlugin = {
     }
     ```
 
+&nbsp;
 
 ## ctx.valid 校验方法说明
 
@@ -97,7 +99,7 @@ exports.validatePlugin = {
 
 2. 如果你想校验其他数据，如自定义对象 myObj 或者 request.query，只需要将其作为第二个参数（扩展字段对象）传入即可
 
-3. 如果传入了扩展字段对象，那么也支持传入第三个参数 merge（boolean 值，为 true 时可缺省），表示是否将扩展字段对象合并到默认的***校验主体 request.body***（merge 默认为 true，即会发生合并）
+3. 如果传入了扩展字段对象，那么也支持传入第三个参数 merge（boolean 值，为 true 时可缺省），表示是否将扩展字段对象合并到默认的**校验主体 request.body**（merge 默认为 true，即会发生合并）
 
 4. 如果你只想对扩展字段对象进行校验，那么第三个参数传 false 即可，此时校验主体会变更为扩展字段对象，不会包含任何 request.body 中的字段
 
@@ -181,10 +183,11 @@ exports.validatePlugin = {
 
     // equal 是相等（全等）规则名，冒号后面是参照目标
     ctx.valid({
-      score: [ 'required', 'type:number', { rule: 'equal:100', msg: '你的分数小于 100' }]
+      score: [ 'required', 'type:number', { rule: 'equal:100', msg: '你的分数不等于 100' }]
     });
     ```
 
+&nbsp;
 
 ## 内置规则
 
@@ -204,6 +207,7 @@ exports.validatePlugin = {
 | max | 校验最大值 | ctx.valid({ age: [ 'max:1000' ] })
 
 
+&nbsp;
 
 ## 添加自定义规则
 
@@ -250,6 +254,7 @@ ctx.valid({
 });
 ```
 
+&nbsp;
 
 ## 完整案例
 
@@ -298,11 +303,14 @@ class HomeController extends Controller {
 module.exports = HomeController;
 ```
 
+&nbsp;
 
 ## 提问交流
 
 请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
 
+
+&nbsp;
 ## License
 
 [MIT](LICENSE)

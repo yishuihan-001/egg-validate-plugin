@@ -1,6 +1,6 @@
 {
   "name": "egg-validate-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "一个简单、易用、可扩展的 egg 应用参数校验插件",
   "eggPlugin": {
     "name": "validatePlugin"
