@@ -55,32 +55,32 @@ exports.validatePlugin = {
 ```
 1. 当 resultHandle 设为 return 时，会直接返回校验失败的提示信息，你需要用一个变量接收他，根据是否有返回值判断校验是否通过
 
-```js
-// resultHandle: 'return'
+    ```js
+    // resultHandle: 'return'
 
-const validResultMsg = ctx.valid({
-  name: [ 'required', 'type:string' ]
-});
+    const validResultMsg = ctx.valid({
+      name: [ 'required', 'type:string' ]
+    });
 
-if (validResultMsg) {
-  return ctx.body = validResultMsg
-}
+    if (validResultMsg) {
+      return ctx.body = validResultMsg
+    }
 
-```
+    ```
 
 2. 当 resultHandle 设为 throw 时，校验失败时会抛错一个错误，错误信息就是校验失败的提示信息，你需要通过 try.catch 捕获这个错误
 
-```js
-// resultHandle: 'throw'
+    ```js
+    // resultHandle: 'throw'
 
-try {
-  ctx.valid({
-    name: [ 'required', 'type:string' ]
-  });
-} catch (err) {
-  return ctx.body = err.message
-}
-```
+    try {
+      ctx.valid({
+        name: [ 'required', 'type:string' ]
+      });
+    } catch (err) {
+      return ctx.body = err.message
+    }
+    ```
 
 
 ## ctx.valid 校验方法说明
@@ -146,44 +146,44 @@ try {
 
 1. 只传入规则名，使用默认的失败提示文案
 
-```js
-ctx.valid({
-  name: [ 'required', 'type:string' ]
-});
-```
+    ```js
+    ctx.valid({
+      name: [ 'required', 'type:string' ]
+    });
+    ```
 
 2. 传入规则名并指定失败提示文案
 
-```js
-ctx.valid({
-  name: [ { rule: 'required', msg: '缺少名称' }, { rule: 'type:string', msg: '名称需要是字符串类型' } ]
-});
+    ```js
+    ctx.valid({
+      name: [ { rule: 'required', msg: '缺少名称' }, { rule: 'type:string', msg: '名称需要是字符串类型' } ]
+    });
 
-//可组合使用
-ctx.valid({
-  name: [ 'required', { rule: 'type:string', msg: '名称需要是字符串类型' } ]
-});
-```
+    //可组合使用
+    ctx.valid({
+      name: [ 'required', { rule: 'type:string', msg: '名称需要是字符串类型' } ]
+    });
+    ```
 
 3. 冒号表达式
 
-也许你已经发现了，有些规则名中存在冒号
+    也许你已经发现了，有些规则名中存在冒号
 
-是的，这里我们规定，冒号前面的是规则名，后面的是校验目标，协助我们对传入的值进行校验
+    是的，这里我们规定，冒号前面的是规则名，后面的是校验目标，协助我们对传入的值进行校验
 
-我们的一些校验规则是需要用到冒号表达式的，具体请看**内置规则**，这里以枚举 enum 和相等 equal 为例演示用法
+    我们的一些校验规则是需要用到冒号表达式的，具体请看**内置规则**，这里以枚举 enum 和相等 equal 为例演示用法
 
-```js
-// enum 是枚举规则名，冒号后面是序列常量
-ctx.valid({
-  role: [ 'required', { rule: 'enum:[3,6,9]', msg: 'role 要是 3、6、9 其中之一' }]
-});
+    ```js
+    // enum 是枚举规则名，冒号后面是序列常量
+    ctx.valid({
+      role: [ 'required', { rule: 'enum:[3,6,9]', msg: 'role 要是 3、6、9 其中之一' }]
+    });
 
-// equal 是相等（全等）规则名，冒号后面是参照目标
-ctx.valid({
-  score: [ 'required', 'type:number', { rule: 'equal:100', msg: '你的分数小于 100' }]
-});
-```
+    // equal 是相等（全等）规则名，冒号后面是参照目标
+    ctx.valid({
+      score: [ 'required', 'type:number', { rule: 'equal:100', msg: '你的分数小于 100' }]
+    });
+    ```
 
 
 ## 内置规则
