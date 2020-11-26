@@ -305,6 +305,15 @@ module.exports = HomeController;
 
 &nbsp;
 
+## 如何在其他非 egg 应用中使用该校验工具
+
+针对其他非 egg 应用，或许你可以了解一下 **validate-plus**
+
+`validate-plus` 是当前校验工具的通用版，如果你已了解 `egg-validate-plugin`，那么只需 1 分钟即可上手 `validate-plus`，了解更多请走传送门 [validate-plus](https://www.npmjs.com/package/validate-plus)
+
+
+&nbsp;
+
 ## 提问交流
 
 请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
